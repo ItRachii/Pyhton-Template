@@ -7,8 +7,8 @@ metadata:
   tags:
     - python
     - library
-  spec:
-  owner: somecompany.com
+spec:
+  owner: somecomapny.com
   type: library
   parameters:
     - title: Provide some simple information
@@ -19,20 +19,24 @@ metadata:
         component_id:
           title: Name
           type: string
-          description: Unique name of the library
-          ui:field: EntityNamePicker
+          description: Unique name of the component
+          # ui:field: EntityNamePicker
         description:
           title: Description
           type: string
           description: A very simple Python library
         author:
-          title: Author
+          title: author
           type: string
           description: Author of the component
-		    authorEmail:
-		      title: Author Email
-		      type: string
-		      description: Author of the library
+          # ui:field: OwnerPicker
+          # ui:options:
+          #   allowedKinds:
+          #     - Group
+        authorEmail:
+          title: Author Email
+          type: string
+          description: Autho's Email
     - title: Choose a location
       required:
         - repoUrl
@@ -57,7 +61,7 @@ metadata:
           description: ${{ parameters.description }}
           destination: ${{ parameters.repoUrl | parseRepoUrl }}
           author: ${{ parameters.author }}
-		      authorEmail: ${{ parameters.authorEmail }}
+          authorEmail: ${{ authorEmail }}
 
     - id: publish
       name: Publish
